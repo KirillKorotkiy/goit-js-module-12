@@ -10,8 +10,7 @@ export default function renderCountry(country){
     const markupCountry = countrySearch(country)
     if(country.length >10){
         Notiflix.Notify.info("Too many matches found. Please enter a more specific name.")
-        refs.infoRef.innerHTML = '';
-        refs.ulRef.innerHTML=''
+        clearResult();
     } 
     if(country.length > 1 && country.length < 10 ){
         refs.ulRef.innerHTML = markupList;
@@ -20,4 +19,9 @@ export default function renderCountry(country){
         refs.infoRef.innerHTML=markupCountry;
         refs.ulRef.innerHTML=''
     }  
+}
+
+function clearResult () {
+    refs.infoRef.innerHTML = '';
+    refs.ulRef.innerHTML=''
 }
